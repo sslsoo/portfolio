@@ -1,6 +1,8 @@
+import React from "react";
 import type { Metadata } from "next";
+import Head from 'next/head';
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../style/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +18,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.googletag = window.googletag || {cmd: []};
+              googletag.cmd.push(function() {
+                googletag.defineSlot('/22036158031/ec2', [300, 250], 'div-gpt-ad-1720748053894-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+              });
+            `,
+          }}
+        />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );
