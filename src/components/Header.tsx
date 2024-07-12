@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   return (
     <header className={`${styles.header} `}>
       <div className="container mx-auto p-4 flex justify-between items-center">
-      <div className="text-white font-bold text-2xl animate-pulse tracking-widest">
+      <div className={`text-white font-bold text-2xl animate-pulse tracking-widest ${poppins.className}`}>
           <span className="text-gray-300">M</span>
           <span className="text-gray-400">y</span>
           <span className="text-transparent"> </span> {/* Space */}
