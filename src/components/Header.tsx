@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const linkClassName = (path: string) => {
     console.log(pathname);
     console.log(path);
-    return `bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300 ${pathname === path ? 'text-blue-500' : ''}`;
+    return `bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300 ${pathname === path ? 'text-blue-500' : 'text-white'}`;
   };
 
   return (
@@ -36,6 +36,9 @@ const Header: React.FC = () => {
           <span className="text-gray-500">o</span>
         </div>
         <div className={`flex space-x-4 ${poppins.className}`}>
+          <Link href="/" className={linkClassName('/')}>
+              home
+          </Link>
           <Link href="/about" className={linkClassName('/about')}>
               about
           </Link>
