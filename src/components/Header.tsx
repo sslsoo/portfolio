@@ -20,8 +20,8 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${styles.header} `}>
-      <div className="container mx-auto p-4 flex justify-between items-center">
-      <div className={`text-white font-bold text-2xl animate-pulse tracking-widest ${poppins.className}`}>
+      <div className="container mx-auto p-4 flex flex-col sm:flex-row justify-between items-center">
+      <div className={`text-white font-bold text-3xl animate-pulse tracking-widest mb-4 sm:mb-0 ${poppins.className}`}>
           <span className="text-gray-300">M</span>
           <span className="text-gray-400">y</span>
           <span className="text-transparent"> </span> {/* Space */}
@@ -34,8 +34,8 @@ const Header: React.FC = () => {
           <span className="text-gray-300">l</span>
           <span className="text-gray-400">i</span>
           <span className="text-gray-500">o</span>
-        </div>
-        <div className={`flex space-x-4 ${poppins.className}`}>
+        </div>  
+        <div className={`flex ${styles.menu} overflow-x-auto space-x-4 ${poppins.className} sm:justify-center scrollbar-hide`}>
           <Link href="/" className={linkClassName('/')}>
               home
           </Link>
