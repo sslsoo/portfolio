@@ -24,11 +24,11 @@ const Home: React.FC = () => {
           })
           .join('') || '';
 
-      const chars = document.querySelectorAll('.char');
-      chars.forEach((char, i) => {
-        char.classList.add('animate-char');
-        char.style.animationDelay = `${i * 0.1}s`;
-      });
+          const chars = document.querySelectorAll<HTMLElement>('.char');
+          chars.forEach((char, i) => {
+            char.classList.add('animate-char');
+            char.style.animationDelay = `${i * 0.1}s`;
+          });
     }
   }, []);
 
