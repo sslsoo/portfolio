@@ -72,6 +72,16 @@ main {
   animation: fade-in-out 3s linear infinite;
 }
 
+.emoji {
+  font-size: 18.5em;
+}
+
+@media (max-width: 640px) {
+  .emoji {
+    font-size: 10em;
+  }
+}
+
 @keyframes fade-in {
   to {
     opacity: 1;

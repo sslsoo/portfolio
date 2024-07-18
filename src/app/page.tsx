@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import { Poppins } from 'next/font/google';
+import axios from 'axios';
 
 const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 
@@ -32,6 +33,26 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  const downloadPdf = () => {
+    axios({
+      url: 'https://sslsoo.github.io/portfolio/resume.pdf',
+      method: 'GET',
+      responseType: 'blob',
+    })
+      .then(response => {
+        const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', 'resume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      })
+      .catch(error => {
+        console.error('Error while downloading the PDF:', error);
+      });
+  }
+
   return (
     <div>
       <Header />
@@ -40,21 +61,20 @@ const Home: React.FC = () => {
           <section className="mx-auto mt-20">
             <div className="flex">
               <div>
-              <div className="text-5xl mb-4">안녕하세요.</div>
-        <div className="text-5xl mb-4">
+              <div className="text-5xl mb-4 sm:text-3xl sm:mb-2">안녕하세요.</div>
+        <div className="text-5xl mb-4 sm:text-3xl sm:mb-2">
           <span className="text-animation text-color-animation">프론트엔드 개발자</span>
         </div>
-        <div className="text-5xl mb-12">전진수입니다.</div>
-        <div className={`text-lg font-bold mb-4 ${poppins.className}`}>
+        <div className="text-5xl mb-12 sm:text-3xl sm:mb-6">전진수입니다.</div>
+        <div className={`text-lg sm:small font-bold mb-4 ${poppins.className}`}>
           소통하는 개발자
           <br />
           <blockquote className="text-lg text-gray-500 border-l-4 border-gray-300 pl-4 italic mt-4">
             다양한 경험을 바탕으로 조금 더 성장하고 싶은 프론트엔드 개발자입니다.
           </blockquote>
         </div>
-                <a
-            href="/resume.pdf"
-            download="resume.pdf"
+                <button
+            onClick={downloadPdf}
             className="mt-8 inline-block w-40 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center space-x-2"
           >
             <span>이력서</span>
@@ -73,9 +93,9 @@ const Home: React.FC = () => {
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-          </a>
+          </button>
               </div>
-              <div>🧑🏻‍💻</div>
+              <div className="ml-auto emoji">🧑🏻‍💻</div>
             </div>
           </section>
         </div>
