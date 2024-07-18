@@ -26,10 +26,65 @@ body {
 
 main {
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   flex-direction: column;
+  padding-top: 120px;
+  position: relative;
+  max-width: 90rem;
+  padding-top: 7rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Add your custom styles here */
+.text-color-animation {
+  display: inline-block;
+  background: linear-gradient(90deg, #54a0ff, #00d2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: color-animation 2s infinite alternate;
+}
+
+@keyframes color-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Add your custom styles here */
+.text-animation {
+  display: inline-block;
+}
+
+.char {
+  opacity: 0;
+  display: inline-block;
+  animation: fade-in 0.5s forwards;
+}
+
+.animate-char {
+  animation: fade-in-out 3s linear infinite;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @layer utilities {
