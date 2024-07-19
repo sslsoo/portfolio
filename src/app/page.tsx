@@ -75,6 +75,7 @@ const Home: React.FC = () => {
         </div>
                 <button
             onClick={downloadPdf}
+            disabled
             className="mt-8 inline-block w-40 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center space-x-2"
           >
             <span>이력서</span>
